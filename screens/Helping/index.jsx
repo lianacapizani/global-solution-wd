@@ -1,13 +1,10 @@
-import React from 'react';
-import {Text, SafeAreaView, View, TouchableOpacity} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import styles from './style';
-import HeaderPage from '../../src/components/molecules/HeaderPage';
+import Text from '../../src/components/atoms/Text';
+
 
 export default function Home() {
     return (
         <SafeAreaView style={styles.safeArea}>
-        <HeaderPage titulo="Inicio" />
+        <HeaderPage titulo="Quero ajudar" destino="Home" />
         <View style={styles.container}>
             <TouchableOpacity>
                 <Ionicons name="construct-sharp" size={36} color="black" />
