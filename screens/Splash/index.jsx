@@ -22,8 +22,8 @@ function SplashScreen() {
         style={styles.logo}
         resizeMode="contain"
       />
-      <Text style={styles.slogan} weight="bold">
-        "SLOGAN"
+      <Text style={styles.slogan} weight="semi-bold">
+        "Informar, proteger e agir. Porque cada segundo conta."
       </Text>
       <Text style={styles.footer}>
         © 2025 AvisaJá. Todos os direitos reservados.

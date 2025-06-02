@@ -7,7 +7,6 @@ import HeaderPage from '../../src/components/molecules/HeaderPage';
 export default function Home() {
     return (
         <SafeAreaView style={styles.safeArea}>
-        <HeaderPage titulo="Inicio" />
         <View style={styles.container}>
             <TouchableOpacity>
                 <Ionicons name="construct-sharp" size={36} color="black" />

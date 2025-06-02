@@ -15,7 +15,7 @@ function TabRoutes() {
   const icons = {
     Inicio: 'home-outline',
     Chat: 'chatbox-outline',
-    Quero_Ajudar: 'happy-outline',
+    'Quero Ajudar': 'happy-outline',
   };
 
   return (
