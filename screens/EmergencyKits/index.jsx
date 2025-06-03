@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import {
-  View,
-  TouchableOpacity,
-  FlatList,
-  ImageBackground,
-  SafeAreaView,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, FlatList, ImageBackground, SafeAreaView } from "react-native";
 import Text from "../../src/components/atoms/Text";
 import HeaderPage from "../../src/components/molecules/HeaderPage";
+import KitItem from "../../src/components/molecules/KitItem";
+import TabSelector from "../../src/components/organisms/TabSelector";
 import styles from "./style";
 
 const kitBasico = [
@@ -34,10 +29,10 @@ export default function EmergencyKits() {
 
   const data = selectedTab === "basico" ? kitBasico : kitPrimeirosSocorros;
 
-    const toggleItem = (itemName) => {
-    setCheckedItems(prev => ({
+  const toggleItem = (itemName) => {
+    setCheckedItems((prev) => ({
       ...prev,
-      [itemName]: !prev[itemName]
+      [itemName]: !prev[itemName],
     }));
   };
 
@@ -58,53 +53,19 @@ export default function EmergencyKits() {
           </View>
         </ImageBackground>
       </View>
-      <View style={styles.tabContainer}>
-        <TouchableOpacity
-          style={[styles.tab, selectedTab === "basico" && styles.activeTab]}
-          onPress={() => setSelectedTab("basico")}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              selectedTab === "basico" && styles.activeTabText,
-            ]}
-          >
-            Básico
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, selectedTab === "primeiros" && styles.activeTab]}
-          onPress={() => setSelectedTab("primeiros")}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              selectedTab === "primeiros" && styles.activeTabText,
-            ]}
-          >
-            Primeiros socorros
-          </Text>
-        </TouchableOpacity>
-      </View>
 
- <FlatList
+      <TabSelector selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+
+      <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={styles.listContainer}
         renderItem={({ item }) => (
-          <View style={styles.itemBox}>
-            <View style={styles.iconCircle}>
-              <Ionicons name={item.icon} size={20} color="#fff" />
-            </View>
-            <Text style={styles.itemText}>{item.name}</Text>
-            <TouchableOpacity onPress={() => toggleItem(item.name)}>
-              <Ionicons
-                name={checkedItems[item.name] ? "checkbox" : "square-outline"}
-                size={24}
-                color="#346a8a"
-              />
-            </TouchableOpacity>
-          </View>
+          <KitItem
+            item={item}
+            isChecked={checkedItems[item.name]}
+            toggleItem={toggleItem}
+          />
         )}
       />
     </SafeAreaView>
