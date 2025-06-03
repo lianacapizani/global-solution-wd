@@ -15,7 +15,6 @@ export default function Home() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView style={styles.container}>
-       {/* <Image source={logo} style={styles.logoImage}/> */}
         <Header />
         <SectionTitle title="Guia rápido" />
         <Text style={styles.paragraph}>
@@ -26,7 +25,7 @@ export default function Home() {
             image={require('../../assets/images/kits-emergencia.jpg')}
             label="Kit Emergência"
             color="#E94600"
-            onPress={() => navigation.navigate('KitEmergencia')}
+            onPress={() => navigation.navigate('EmergencyKits')}
             />
             <CircleButton
             image={require('../../assets/images/como-agir.png')}

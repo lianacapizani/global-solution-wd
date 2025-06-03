@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons'; 
 import SplashScreen from '../screens/Splash';
 import Home from '../screens/Home';
+import EmergencyKits from '../screens/EmergencyKits';
 import Chat from '../screens/Chat';
 import Helping from '../screens/Helping';
 
@@ -43,6 +44,7 @@ export default function Routes() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Main" component={TabRoutes} />
+        <Stack.Screen name="EmergencyKits" component={EmergencyKits} />
         <Stack.Screen name="Chat" component={Chat} />
       </Stack.Navigator>
     </NavigationContainer>
