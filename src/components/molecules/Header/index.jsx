@@ -19,7 +19,7 @@ function Header() {
         resizeMode="contain"
       />
       <TouchableOpacity>
-        <Ionicons name="location-outline" size={24} color="red" />
+        <Ionicons name="location-sharp" size={28} color="#df1106"/>
       </TouchableOpacity>
     </View>
   );

@@ -29,7 +29,7 @@ Antes de começar, garanta que você tenha as seguintes ferramentas instaladas:
 2. Navegue até o diretório do projeto:
 
     ```bash
-    cd reuseapp
+    cd global-solution-wd
     ```
 
 3. Instale as dependências:
