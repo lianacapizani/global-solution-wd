@@ -22,7 +22,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     paddingHorizontal: 20,
     padding: 24,
-    backgroundColor: 'rgba(0, 0, 0, 0.64)', // fundo preto com 40% de opacidade
+    backgroundColor: 'rgba(0, 0, 0, 0.64)',
   },
   title: {
     fontSize: 24,
