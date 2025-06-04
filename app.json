@@ -8,9 +8,8 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "name":"Alerta Ja",
       "image": "./assets/images/logo.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "ios": {
