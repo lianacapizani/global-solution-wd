@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "AvisaJa",
-    "slug": "AvisaJa",
+    "name": "Alerta Ja",
+    "slug": "Alerta-Ja",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.png",
+    "icon": "./assets/images/favicon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
+      "name":"Alerta Ja",
       "image": "./assets/images/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
@@ -23,7 +24,8 @@
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "name": "Alerta Já"
     },
     "plugins": [
       "expo-font"

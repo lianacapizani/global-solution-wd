@@ -1,6 +1,6 @@
-# AvisaJá
+# AlertaJá
 
-Este é o repositório do **AvisaJá**, projeto desenvolvido para o Global Solutions (FIAP), usando **React Native com Expo**.
+Este é o repositório do **AlertaJá**, projeto desenvolvido para o Global Solutions (FIAP), usando **React Native com Expo**.
 
 ## 📱 Tecnologias usadas
 - React Native

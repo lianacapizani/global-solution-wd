@@ -31,7 +31,7 @@ export default function Home() {
             image={require('../../assets/images/como-agir.png')}
             label="Como agir"
             color="#2A7DC2"
-            onPress={() => navigation.navigate('Informacoes')}
+            onPress={() => navigation.navigate('Guideliness')}
             />
             <CircleButton
             image={require('../../assets/images/primeiros-socorros.jpg')}

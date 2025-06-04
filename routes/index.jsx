@@ -7,7 +7,7 @@ import SplashScreen from '../screens/Splash';
 import Home from '../screens/Home';
 import EmergencyKits from '../screens/EmergencyKits';
 import Chat from '../screens/Chat';
-import Helping from '../screens/Helping';
+import Guideliness from '../screens/Guideliness';
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -29,11 +29,12 @@ function TabRoutes() {
         },
         tabBarActiveTintColor: '#E94600',
         tabBarInactiveTintColor: 'gray',
+         title: route.name === 'Inicio' ? 'Início' : route.name === 'Chat' ? 'Bate-papo' : 'Quero Ajudar',
       })}
     >
       <Tabs.Screen name="Inicio" component={Home} />
       <Tabs.Screen name="Chat" component={Chat} />
-      <Tabs.Screen name="Quero Ajudar" component={Helping} />
+      <Tabs.Screen name="Quero Ajudar" component={Guideliness} />
     </Tabs.Navigator>
   );
 }
@@ -42,10 +43,12 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Main" component={TabRoutes} />
-        <Stack.Screen name="EmergencyKits" component={EmergencyKits} />
-        <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="Splash" component={SplashScreen}  options={{ title: 'Carregando...' }}/>
+        <Stack.Screen name="Main" component={TabRoutes}  options={{ title: 'Alerta Já' }}/>
+          <Stack.Screen name="Inicio" component={Home} options={{ title: 'Início' }}/>
+        <Stack.Screen name="EmergencyKits" component={EmergencyKits}  options={{ title: 'Kits de Emergência' }} />
+        <Stack.Screen name="Guideliness" component={Guideliness}  options={{ title: 'Guias' }} />
+        <Stack.Screen name="Chat" component={Chat} options={{ title: 'Bate-papo' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

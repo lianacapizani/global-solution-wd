@@ -26,7 +26,7 @@ function SplashScreen() {
         "Informar, proteger e agir. Porque cada segundo conta."
       </Text>
       <Text style={styles.footer}>
-        © 2025 AvisaJá. Todos os direitos reservados.
+        © 2025 AlertaJá. Todos os direitos reservados.
       </Text>
     </View>
   );
