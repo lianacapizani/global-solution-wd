@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, ImageBackground, SafeAreaView, Pressable } from "react-native";
-import Text from "../../src/components/atoms/Text";
-import HeaderPage from "../../src/components/molecules/HeaderPage";
+import Text from "../../components/atoms/Text";
+import HeaderPage from "../../components/molecules/HeaderPage";
 import Earthquakes from './Earthquakes';
 import Fire from './Fire';
 import Floods from './Floods';
@@ -29,7 +29,7 @@ export default function Guideliness() {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.headerContainer}>
         <ImageBackground
-          source={require("../../assets/images/como-agir.png")}
+          source={require("../../../assets/images/como-agir.png")}
           style={styles.backgroundContainer}
           imageStyle={styles.imageStyle}
         >

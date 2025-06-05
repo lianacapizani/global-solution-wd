@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View, FlatList, ImageBackground, SafeAreaView } from "react-native";
-import Text from "../../src/components/atoms/Text";
-import HeaderPage from "../../src/components/molecules/HeaderPage";
-import KitItem from "../../src/components/molecules/KitItem";
-import TabSelector from "../../src/components/organisms/TabSelector";
+import Text from "../../components/atoms/Text";
+import HeaderPage from "../../components/molecules/HeaderPage";
+import KitItem from "../../components/molecules/KitItem";
+import TabSelector from "../../components/organisms/TabSelector";
 import styles from "./style";
 
 const kitBasico = [
@@ -40,7 +40,7 @@ export default function EmergencyKits() {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.headerContainer}>
         <ImageBackground
-          source={require("../../assets/images/kits-emergencia.jpg")}
+          source={require("../../../assets/images/kits-emergencia.jpg")}
           style={styles.backgroundContainer}
           imageStyle={styles.imageStyle}
         >

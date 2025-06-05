@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Image, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './style';
-import Text from '../../src/components/atoms/Text';
+import Text from '../../components/atoms/Text';
 
 function SplashScreen() {
   const navigation = useNavigation();
@@ -18,7 +18,7 @@ function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/logo.png')}
+        source={require('../../../assets/images/logo.png')}
         style={styles.logo}
         resizeMode="contain"
       />
