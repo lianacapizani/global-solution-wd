@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyDvS0s0PGgl3mkE9tsSn8MjswicrHu8LEM",
   authDomain: "alertaja-app.firebaseapp.com",
@@ -12,5 +11,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 export const db = getFirestore(app);

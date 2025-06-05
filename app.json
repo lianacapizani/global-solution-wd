@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Alerta Ja",
+    "name": "AlertaJa",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.png",
+    "icon": "./assets/images/adaptive-Icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/logo.png",
+      "image": "./assets/images/adaptive-Icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
