@@ -1,5 +1,7 @@
-import { initializeApp } from "firebase/app";
+// firebaseConfig.js
+import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getDatabase } from 'firebase/database';
 import Constants from 'expo-constants';
 
 const {
@@ -8,7 +10,8 @@ const {
   firebaseProjectId,
   firebaseStorageBucket,
   firebaseMessagingSenderId,
-  firebaseAppId
+  firebaseAppId,
+  firebaseDatabaseURL // Adicione isso no seu app.config.js ou .env se não tiver
 } = Constants.expoConfig.extra;
 
 const firebaseConfig = {
@@ -17,8 +20,12 @@ const firebaseConfig = {
   projectId: firebaseProjectId,
   storageBucket: firebaseStorageBucket,
   messagingSenderId: firebaseMessagingSenderId,
-  appId: firebaseAppId
+  appId: firebaseAppId,
+  databaseURL: firebaseDatabaseURL, // Necessário para usar o Realtime DB
 };
 
 const app = initializeApp(firebaseConfig);
+
+// Exporta os dois bancos com nomes diferentes
 export const db = getFirestore(app);
+export const realtimeDB = getDatabase(app);
