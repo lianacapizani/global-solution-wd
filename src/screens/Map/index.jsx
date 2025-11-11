@@ -1,20 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, ActivityIndicator, Alert } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import React, { useState, useEffect, useRef } from "react";
+import { View, Text, Alert, Platform } from "react-native";
+import styles from "./style";
 import { ref, set, push, onValue } from "firebase/database";
-import { realtimeDB  } from "../../services/firebaseConfig";
-import * as Location from 'expo-location';
+import { realtimeDB } from "../../services/firebaseConfig";
+import * as Location from "expo-location";
 
-import styles from './style';
+let NativeMapView = null;
+if (Platform.OS !== "web") {
+  NativeMapView = require("./NativeMapView").default;
+}
 
-function Map({ navigation }) {
+function Map() {
   const [localizacao, setLocalizacao] = useState(null);
-  const mapRef = useRef(null);
   const [selectedCoordinate, setSelectedCoordinate] = useState(null);
   const [endereco, setEndereco] = useState(null);
   const [buracos, setBuracos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isFetchingAddress, setIsFetchingAddress] = useState(false);
+  const mapRef = useRef(null);
 
   const formatarData = (timestamp) => {
     const data = new Date(timestamp);
@@ -84,6 +87,8 @@ function Map({ navigation }) {
   }, []);
 
   useEffect(() => {
+    if (Platform.OS === "web") return;
+
     let subscription = null;
     (async () => {
       subscription = await Location.watchPositionAsync(
@@ -101,9 +106,7 @@ function Map({ navigation }) {
       );
     })();
 
-    return () => {
-      if (subscription) subscription.remove();
-    };
+    return () => subscription?.remove();
   }, []);
 
   useEffect(() => {
@@ -120,55 +123,34 @@ function Map({ navigation }) {
     });
   }, []);
 
-  return (
-    <View style={styles.container}>
-      {isLoading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : localizacao && localizacao.coords ? (
-        <MapView
-          ref={mapRef}
-          style={styles.map}
-          initialRegion={{
-            latitude: localizacao.coords.latitude,
-            longitude: localizacao.coords.longitude,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
-          }}
-          onPress={handlePressMap}
-          showsUserLocation={true}
-          showsMyLocationButton={true}
-          mapType="satellite"
-        >
-          {selectedCoordinate && (
-            <Marker
-              coordinate={selectedCoordinate}
-              title="Buraco"
-              description={endereco || "Endereço não disponível"}
-            />
-          )}
-          {buracos.map((buraco) => (
-            <Marker
-              key={buraco.id}
-              coordinate={{
-                latitude: buraco.latitude,
-                longitude: buraco.longitude,
-              }}
-              title="Buraco"
-              description={buraco.dataFormatada}
-            />
-          ))}
-        </MapView>
-      ) : (
-        <Text>Localização não disponível</Text>
-      )}
+  if (Platform.OS === "web") {
+    return (
+      <View
+        style={[
+          styles.container,
+          { justifyContent: "center", alignItems: "center" },
+        ]}
+      >
+        <Text style={{ textAlign: "center", padding: 20 }}>
+          🌐 O mapa não está disponível na versão web.
+          {"\n"}
+          Abra o app no Android ou iOS para visualizar o mapa interativo.
+        </Text>
+      </View>
+    );
+  }
 
-      {isFetchingAddress && <ActivityIndicator size="small" color="#ff0000" />}
-      {endereco && (
-        <View style={styles.enderecoContainer}>
-          <Text style={styles.enderecoText}>{endereco}</Text>
-        </View>
-      )}
-    </View>
+  return (
+    <NativeMapView
+      mapRef={mapRef}
+      localizacao={localizacao}
+      selectedCoordinate={selectedCoordinate}
+      endereco={endereco}
+      buracos={buracos}
+      isLoading={isLoading}
+      isFetchingAddress={isFetchingAddress}
+      handlePressMap={handlePressMap}
+    />
   );
 }
 
